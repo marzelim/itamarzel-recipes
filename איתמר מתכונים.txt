@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מתכוני הבית</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff8f0;
+      color: #333;
+    }
+    header {
+      background-color: #ff7043;
+      padding: 1rem;
+      text-align: center;
+      color: white;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #ffe0b2;
+      padding: 0.5rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #ff7043;
+    }
+    .form-container {
+      padding: 2rem;
+      background-color: #fff3e0;
+    }
+    form {
+      display: grid;
+      gap: 1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    input, textarea, select, button {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #ff7043;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #e64a19;
+    }
+    .container {
+      padding: 2rem;
+    }
+    .category-section {
+      margin-bottom: 3rem;
+    }
+    .category-title {
+      font-size: 1.8rem;
+      color: #ff7043;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .recipes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .recipe {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+      position: relative;
+    }
+    .recipe:hover {
+      transform: translateY(-5px);
+    }
+    .recipe img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .recipe-content {
+      padding: 1rem;
+    }
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #ff1744;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #ff7043;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>מתכוני הבית</h1>
+    <p>טעימים. ביתיים. מושלמים.</p>
+  </header>
+
+  <nav>
+    <a href="#first-courses">מנות ראשונות</a>
+    <a href="#main-courses">מנות עיקריות</a>
+    <a href="#desserts">קינוחים</a>
+  </nav>
+
+  <div class="form-container">
+    <h2 style="text-align: center;">הוסף מתכון חדש</h2>
+    <form id="recipeForm">
+      <input type="text" id="recipeName" placeholder="שם המתכון" required>
+      <select id="recipeCategory" required>
+        <option value="first-courses">מנות ראשונות</option>
+        <option value="main-courses">מנות עיקריות</option>
+        <option value="desserts">קינוחים</option>
+      </select>
+      <textarea id="recipeDescription" placeholder="תיאור קצר" required></textarea>
+      <input type="url" id="recipeImage" placeholder="קישור לתמונה" required>
+      <button type="submit">הוסף מתכון</button>
+    </form>
+  </div>
+
+  <div class="container">
+    <div class="category-section" id="first-courses">
+      <h2 class="category-title">מנות ראשונות</h2>
+      <div class="recipes-grid" id="firstCoursesGrid">
+        <div class="recipe">
+          <img src="https://via.placeholder.com/400x200?text=%D7%9E%D7%A0%D7%94+%D7%A8%D7%90%D7%A9%D7%95%D7%A0%D7%94" alt="מנה ראשונה">
+          <div class="recipe-content">
+            <h2>סלט חומוס עשיר</h2>
+            <p>סלט חומוס קליל עם ירקות טריים ורוטב לימוני.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-section" id="main-courses">
+      <h2 class="category-title">מנות עיקריות</h2>
+      <div class="recipes-grid" id="mainCoursesGrid">
+        <div class="recipe">
+          <img src="https://via.placeholder.com/400x200?text=%D7%9E%D7%A0%D7%94+%D7%A2%D7%99%D7%A7%D7%A8%D7%99%D7%AA" alt="מנה עיקרית">
+          <div class="recipe-content">
+            <h2>פסטה ברוטב שמנת ופטריות</h2>
+            <p>פסטה רכה עם רוטב שמנת עשיר ופטריות טריות.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-section" id="desserts">
+      <h2 class="category-title">קינוחים</h2>
+      <div class="recipes-grid" id="dessertsGrid">
+        <div class="recipe">
+          <img src="https://via.placeholder.com/400x200?text=%D7%A7%D7%99%D7%A0%D7%95%D7%97" alt="קינוח">
+          <div class="recipe-content">A7%D7%99%D7%A0%D7%95%D7%97" alt="קינוח">
+          <div class="recipe-content">
+            <h2>עוגת שוקולד נמסה</h2>
+            <p>עוגת שוקולד חמה עם מרכז נוזלי ומפנק.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 מתכוני הבית. כל הזכויות שמורות.
+  </footer>
+
+  <script>לא
+    const form = document.getElementById('recipeForm');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('recipeName').value;
+      const category = document.getElementById('recipeCategory').value;
+      const description = document.getElementById('recipeDescription').value;
+      const image = document.getElementById('recipeImage').value;
+
+      const newRecipe = document.createElement('div');
+      newRecipe.classList.add('recipe');
+      newRecipe.innerHTML = `
+        <button class="delete-btn">X</button>
+        <img src="${image}" alt="${name}">
+        <div class="recipe-content">
+          <h2>${name}</h2>
+          <p>${description}</p>
+        </div>
+      `;
+
+      const grid = document.getElementById(category + 'Grid');
+      grid.appendChild(newRecipe);
+
+      const deleteBtn = newRecipe.querySelector('.delete-btn');
+      deleteBtn.addEventListener('click', () => {
+        newRecipe.remove();
+      });
+
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
